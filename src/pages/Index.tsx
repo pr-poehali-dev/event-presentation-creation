@@ -162,78 +162,69 @@ function Slide1() {
 
 function Slide2({ sketchImage }: { sketchImage: string }) {
   return (
-    <div className="w-full h-full relative flex overflow-hidden bg-[#f7f3ec]">
-      {/* Left column */}
-      <div className="flex-1 flex flex-col justify-center px-14 py-12 relative z-10">
-        <p className="font-golos text-[9px] tracking-[0.4em] uppercase text-[#9e8c78] mb-8">
-          Смыслы мероприятия
-        </p>
-
-        <h2
-          className="font-cormorant font-light text-[#3a2e24] leading-[1.15] mb-8"
-          style={{ fontSize: "clamp(1.8rem, 3.2vw, 3rem)" }}
-        >
-          Жанры во&nbsp;имя
-          <br />
-          <span className="italic">женского образа</span>
-        </h2>
-
-        <div className="w-12 h-px bg-[#c9b99a] mb-8" />
-
-        <p className="font-golos text-[#5a4a3a] text-sm leading-[1.85] mb-8 max-w-[42ch]" style={{ fontWeight: 300 }}>
-          Через музыку, кино и поэзию — вдохновляясь классикой — мы вписываем женщин зала
-          в великие художественные образы. Каждый блок открывает известная личность:
-          образы поэтов и уральских композиторов появляются на прозрачных экранах
-          и голограммах.
-        </p>
-
-        <div className="flex flex-col gap-3 mb-8">
-          {[
-            { symbol: "♩", label: "Скрипка · Гитара · Клавиши", sub: "Женщина — инструмент" },
-            { symbol: "◎", label: "Танго · Вальс", sub: "Женщина — танец" },
-            { symbol: "◈", label: "Лирика · Веселье · Рок", sub: "Женщина — песня" },
-          ].map((item) => (
-            <div key={item.label} className="flex items-start gap-4">
-              <span className="font-cormorant text-[#c9b99a] text-xl leading-none mt-0.5">{item.symbol}</span>
-              <div>
-                <p className="font-golos text-[#3a2e24] text-xs tracking-wide">{item.sub}</p>
-                <p className="font-golos text-[#9e8c78] text-[10px] tracking-widest uppercase mt-0.5">{item.label}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <blockquote className="border-l border-[#c9b99a] pl-5">
-          <p
-            className="font-cormorant italic text-[#6b5c47] leading-relaxed"
-            style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.15rem)" }}
-          >
-            «После известной личности выходит мужчина из зала — и произносит речь для своей женщины»
-          </p>
-        </blockquote>
-      </div>
-
-      {/* Right column — sketch */}
-      <div className="w-[44%] relative flex-shrink-0 overflow-hidden">
-        <div className="absolute left-0 top-12 bottom-12 w-px bg-[#c9b99a]/40 z-10" />
-
+    <div className="w-full h-full relative flex flex-col overflow-hidden bg-[#f7f3ec]">
+      {/* Top: sketch image */}
+      <div className="relative w-full flex-shrink-0" style={{ height: "52%" }}>
         <img
           src={sketchImage}
           alt="Эскиз сценографии с лабиринтами"
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
-          style={{ filter: "sepia(20%) contrast(0.9) brightness(1.05)" }}
+          className="w-full h-full object-cover opacity-75"
+          style={{ filter: "sepia(20%) contrast(0.88) brightness(1.08)", objectPosition: "center 30%" }}
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f7f3ec]/20 via-transparent to-[#f7f3ec]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f7f3ec]/30 via-transparent to-[#f7f3ec]/30" />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f7f3ec]/60 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#f7f3ec]/40 via-transparent to-transparent" />
-
-        <div className="absolute bottom-10 right-8 text-right z-10">
+        {/* Image caption */}
+        <div className="absolute top-6 right-8 text-right z-10">
           <p className="font-golos text-[8px] tracking-[0.3em] uppercase text-[#9e8c78]">Сценография</p>
-          <p className="font-cormorant italic text-[#6b5c47] text-sm mt-1">Лабиринты пространства</p>
+          <p className="font-cormorant italic text-[#6b5c47] text-sm mt-0.5">Лабиринты пространства</p>
         </div>
 
-        <div className="absolute top-12 right-12 w-6 h-6 border-t border-r border-[#9e8c78]/50 z-10" />
-        <div className="absolute bottom-12 right-12 w-6 h-6 border-b border-r border-[#9e8c78]/50 z-10" />
+        {/* Corner marks */}
+        <div className="absolute top-6 left-8 w-5 h-5 border-t border-l border-[#9e8c78]/50" />
+        <div className="absolute top-6 right-8 w-5 h-5 border-t border-r border-[#9e8c78]/50" />
+      </div>
+
+      {/* Bottom: text */}
+      <div className="flex-1 flex items-start gap-12 px-14 pt-4 pb-6">
+        {/* Left: heading */}
+        <div className="flex-shrink-0 pt-1">
+          <p className="font-golos text-[9px] tracking-[0.4em] uppercase text-[#9e8c78] mb-3">
+            Смыслы мероприятия
+          </p>
+          <h2
+            className="font-cormorant font-light text-[#3a2e24] leading-[1.1]"
+            style={{ fontSize: "clamp(1.5rem, 2.4vw, 2.4rem)" }}
+          >
+            Жанры во&nbsp;имя
+            <br />
+            <span className="italic">женского образа</span>
+          </h2>
+          <div className="w-10 h-px bg-[#c9b99a] mt-4" />
+        </div>
+
+        {/* Divider */}
+        <div className="w-px self-stretch bg-[#c9b99a]/40 flex-shrink-0" />
+
+        {/* Right: body */}
+        <div className="flex-1 pt-1">
+          <p className="font-golos text-[#5a4a3a] text-[13px] leading-[1.8]" style={{ fontWeight: 300 }}>
+            Существует множество жанров, в каждом из которых восхваляется женский образ — красота души и тела. Через музыку, кино и поэзию, вдохновляясь классикой, мы вписываем женщин зала в великие художественные образы: семья и близкие мужчины произносят тёплые слова. Образы поэтов и уральских композиторов появляются на прозрачных экранах и голограммах — после чего мужчина из зала выходит и дарит подарок своей женщине.
+          </p>
+
+          <div className="flex gap-5 mt-4">
+            {[
+              { symbol: "♩", sub: "инструмент" },
+              { symbol: "◎", sub: "танец" },
+              { symbol: "◈", sub: "песня" },
+            ].map((item) => (
+              <div key={item.sub} className="flex items-center gap-1.5">
+                <span className="font-cormorant text-[#c9b99a] text-base leading-none">{item.symbol}</span>
+                <p className="font-golos text-[#9e8c78] text-[10px] tracking-widest uppercase">{item.sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
